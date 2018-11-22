@@ -15,9 +15,10 @@ class App extends Component {
   }
 
   search = (query) => {
-    giphy('ZO99WLo1fWqsAADgQ3yM6Nfq4GZYOEWy').search({
+    giphy().search({
       q: query,
-      rating: 'g'
+      rating: 'g',
+      limit: 10
     }, (err, res) => {
       this.setState({
         gifs: res.data
@@ -25,9 +26,9 @@ class App extends Component {
     });
   }
 
-  selectGif = (image) => {
+  selectGif = (id) => {
     this.setState({
-      selectedGifId: "prout"
+      selectedGifId: id
     });
   }
 
@@ -41,7 +42,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} clickFunction={this.selectGif} />
+          <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
         </div>
       </div>
     );
