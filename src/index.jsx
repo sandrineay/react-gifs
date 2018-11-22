@@ -5,8 +5,6 @@ import '../assets/stylesheets/application.scss';
 
 import App from './components/app.jsx';
 
-const Hello = props => <div>Hello, {props.name}</div>;
-
 const root = document.getElementById('root');
 if (root) {
   ReactDOM.render(<App />, root);
